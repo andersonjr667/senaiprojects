@@ -4,11 +4,12 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
 app.use('/', createProxyMiddleware({
-  target: 'https://3f7c-177-39-9-218.ngrok-free.app', // seu link do Ngrok
+  target: 'https://3f7c-177-39-9-218.ngrok-free.app', // seu link do ngrok aqui
   changeOrigin: true,
   secure: false,
 }));
 
-app.listen(3000, () => {
-  console.log('Proxy rodando na porta 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Proxy online na porta ${PORT}`);
 });
